@@ -44,7 +44,7 @@
             src="{{ tweet.media }}"
           />
         </div>
-        <div class="tweet-created-at">{{ tweet.created_at }}</div>
+        <div class="tweet-created-at">{{ tweet.human_date }}</div>
         <div
           class="tweet-mentions"
           *ngIf="

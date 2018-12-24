@@ -9,11 +9,8 @@ export class FilterArrayPipe implements PipeTransform {
       if (array == null) {
           return array;
       }
-      console.log(array);
-      console.log(option);
       return array.filter(x => {
           const diff_from_today = moment().diff(moment(x.created_at), 'days');
-          console.log(diff_from_today);
           if (option === TWEETS_TO_SHOW_OPTIONS.EARLIER) {
               if (diff_from_today < 1) {
                 return false;

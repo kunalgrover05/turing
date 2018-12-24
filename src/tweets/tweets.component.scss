@@ -1,0 +1,121 @@
+.container-list {
+  max-width: 100%;
+  border: solid 1px #ccc;
+  min-height: 60px;
+  display: flex;
+  flex-direction: row;
+  background: white;
+  border-radius: 4px;
+}
+
+.container-box:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.container-box {
+  padding: 20px 10px;
+  border-right: solid 1px #ccc;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  flex-grow: 1;
+  flex-basis: 0;
+  position: relative;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.tweet {
+  padding: 10px;
+  border: 1px solid #1da1f2;
+  margin-top: 10px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.87);
+  width: 92%;
+  font-size: 15px;
+}
+
+.tweet:hover {
+  width: 95%;
+  transition: width 0.3s;
+  transition: font-size 0.3s;
+  font-size: 16px;
+}
+
+.tweet-created-at {
+  font-weight: bold;
+  text-align: right;
+  font-size: 12px;
+}
+
+.retweet {
+  @extend .tweet;
+  border: 1px solid green;
+}
+
+.drag-handle {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  color: #ccc;
+  cursor: move;
+  font-size: 24px;
+}
+
+.header {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.tweet-image-container {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tweet-image {
+  width: 100%;
+  height: 100%;
+}
+
+.help {
+  padding: 20px;
+  background: rgba(0, 200, 0, 0.4);
+  font-size: 20px;
+  color: white;
+  margin: 12px;
+  font-weight: 600;
+}
+
+.tweet-mentions {
+  text-align: right;
+  font-size: 13px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.container-box:last-child {
+  border: none;
+}
+
+.container-list.cdk-drop-list-dragging
+  .container-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

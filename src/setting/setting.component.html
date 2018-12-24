@@ -1,0 +1,40 @@
+<div class="settings-dialog">
+  <div class="icon">
+    <i class="fa fa-window-close" (click)="hideSettings()"></i>
+  </div>
+  <div class="header">Settings</div>
+  <mat-form-field>
+    <mat-label>Show tweets from</mat-label>
+    <mat-select
+      [(ngModel)]="selectedUsernames"
+      multiple
+      (selectionChange)="valueSelected($event)"
+    >
+      <mat-option *ngFor="let username of usernames" [value]="username">{{
+        username
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Number of tweets to fetch</mat-label>
+    <input [formControl]="tweetCountControl" matInput type="number" />
+  </mat-form-field>
+
+  <div class="form-item">
+    <mat-slide-toggle [(ngModel)]="includeRetweets" (change)="saveIncludeRetweets()"
+      >Show Retweets?</mat-slide-toggle
+    >
+  </div>
+
+  <div class="form-item">
+  
+    <div style="font-color: grey">Which tweets to show?</div>
+
+      <mat-radio-group  [(ngModel)]="tweetsToShow" (change)="saveTweetsToShow()">
+          <mat-radio-button value="All">All</mat-radio-button>
+          <mat-radio-button value="Today">Today</mat-radio-button>
+          <mat-radio-button value="Earlier">Earlier</mat-radio-button>
+        </mat-radio-group>
+        </div>
+</div>

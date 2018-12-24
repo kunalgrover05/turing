@@ -1,0 +1,64 @@
+<div *ngIf="(state$ | async).settingsVisible" class="help">
+  Use the drag icons to reorder columns as per your preference
+</div>
+<div
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  class="container-list"
+  (cdkDropListDropped)="drop($event)"
+>
+  <div
+    class="container-box"
+    *ngFor="let section of sections"
+    style="flex-direction: column"
+    cdkDrag
+    [cdkDragDisabled]="!(state$ | async).settingsVisible"
+  >
+    <div
+      *ngIf="(state$ | async).settingsVisible"
+      class="drag-handle"
+      cdkDragHandle
+    >
+      <i class="fas fa-arrows-alt-h"></i>
+    </div>
+
+    <div class="header">{{ section }}</div>
+    <ng-container
+      *ngFor="
+        let tweet of (tweetsData[section]
+          | filterArrayPipe: (state$ | async).tweetsToShow)
+      "
+    >
+      <a
+        *ngIf="!tweet.is_retweet || (state$ | async).showRetweets"
+        [ngClass]="tweet.is_retweet ? 'retweet' : 'tweet'"
+        href="{{ tweet.url }}"
+        style="text-decoration: none"
+        target="blank"
+      >
+        <div class="tweet-text">{{ tweet.text }}</div>
+        <div class="tweet-image-container">
+          <img
+            class="tweet-image"
+            *ngIf="tweet.media"
+            src="{{ tweet.media }}"
+          />
+        </div>
+        <div class="tweet-created-at">{{ tweet.created_at }}</div>
+        <div
+          class="tweet-mentions"
+          *ngIf="
+            tweet.mentioned_users != null && tweet.mentioned_users.length > 0
+          "
+        >
+          Mentions:
+          <span *ngFor="let mention of tweet.mentioned_users; let i = index"
+            ><ng-container *ngIf="i !== 0">, </ng-container>@{{
+              mention.screen_name
+            }}</span
+          >
+        </div>
+      </a>
+    </ng-container>
+  </div>
+</div>

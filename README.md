@@ -1,27 +1,32 @@
 # Turing
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
+Project requirements for Turing Frontend project.
 
-## Development server
+## Backend?
+Backend server is a Twitter proxy server deployed on Heroku.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Dependencies
+* Angular@7 with RxJS@6
+* ngrx/store -> Redux store for Angular
+* moment -> Simple date manipulation library
+* timeago.js -> Render human dates
+* ngrx-store-localstorage -> Localstorage sync for Redux store
+* angular/material -> Material components for Angular
+* angular/flex-layout -> Responsive Flex layout
+* Fontawesome -> Icons
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Try it out
+https://kunalgrover05.github.io/turing/
 
-## Build
+Features:
+- View tweets from available handles. Customize which handles to view tweets from using settings.
+- Reorder tweet columns using Drag and drop. (Enable settings mode first)
+- All settings persist across reloads.
+- View Retweets separately and hide them using Settings.
+- Click on tweet to open the tweet
+- Customize tweets to show: Today / Earlier / All (This is done at Frontend level since the API doesn't have this)
+- Customize number of tweets to fetch from API.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Bugs:
+- Scrolling on tweet divs is broken on mobile devices. Use the left empty area to scroll.

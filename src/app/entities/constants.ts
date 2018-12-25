@@ -10,9 +10,9 @@ export const USERNAMES = {
   MAKESCHOOL: "@makeschool",
   YCOMBINATOR: "@ycombinator",
   NEWSYCOMBINATOR: "@newsycombinator",
-  MASHABLE: "@mashable",
-  WIRED: "@WIRED",
-  TECHCRUNCH: "@TechCrunch"
+  ELONMUSK: "@elonmusk",
+  TWITTER: "@twitter",
+  GOOGLE: "@googleai"
 };
 
 export const INITIAL_STATE: State = {

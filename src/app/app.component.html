@@ -1,8 +1,8 @@
 <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-        <div fxFlex="80%">
+    <div fxFlex="80%" fxFlex.sm="{{ 50 * (state$ | async).usernames.length }}%" style="padding: 20px;">
         <app-tweets></app-tweets>            
         </div>
-        <div fxFlex="20%" style="padding: 20px;">
+        <div fxFlex="20%" fxFlex.sm="100%" style="padding: 20px;">
         <div class="icon">
           <i class="fas fa-cog" *ngIf="!(state$ | async).settingsVisible" (click)="showSettings()" src="assets/settings.svg"></i>            
         </div>
